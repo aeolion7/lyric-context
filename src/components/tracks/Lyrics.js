@@ -15,14 +15,14 @@ class Lyrics extends Component {
     try {
       const { id } = this.props.match.params;
 
-      const { data } = await axios.get(
+      const lyricResponse = await axios.get(
         `https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=${id}&apikey=${
           process.env.REACT_APP_MM_KEY
         }`
       );
 
       this.setState({
-        lyrics: data.message.body.lyrics,
+        lyrics: lyricResponse.data.message.body.lyrics,
       });
 
       const trackResponse = await axios.get(
