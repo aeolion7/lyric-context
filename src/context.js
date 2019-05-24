@@ -20,7 +20,6 @@ export class Provider extends Component {
         process.env.REACT_APP_MM_KEY
       }`
     );
-    console.log(data);
     this.setState({
       track_list: data.message.body.track_list,
     });
